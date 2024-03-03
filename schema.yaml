@@ -1,0 +1,24 @@
+index:
+  name: user_index
+  prefix: user
+  storage_type: hash
+  key_separator: ':'
+
+fields:
+    # define tag fields
+    tag:
+        - name: user
+        - name: credit_store
+    # define text fields
+    text:
+        - name: job
+    # define numeric fields
+    numeric:
+        - name: age
+    # define vector fields
+    vector:
+        - name: user_embedding
+          algorithm: flat
+          dims: 3
+          distance_metric: cosine
+          datatype: float32
