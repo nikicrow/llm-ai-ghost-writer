@@ -1,8 +1,6 @@
 import streamlit as st
 from langchain.prompts import PromptTemplate
 from ctransformers.langchain import CTransformers
-import json
-import textwrap
 
 # function to get response from model
 def getresponse(input_text,no_words):
