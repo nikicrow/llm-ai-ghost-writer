@@ -1,4 +1,4 @@
-# llm-ai-ghost-writer
+# AI Ghost Writer
 Open source and Open AI LLM for writing your book 1 chapter at a time.
 
 Ever had a great plot but hate writing (but love editing)? Well I have the app for you.
