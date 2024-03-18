@@ -44,7 +44,9 @@ def getresponse(input_text,no_words):
 st.set_page_config(page_title="AI Ghost writer",
                    page_icon=':books:',
                    layout='centered',
-                   initial_sidebar_state='collapsed')
+                   initial_sidebar_state='expanded')
+
+password = st.sidebar.text_input("Password to use the app")
 
 st.header("AI Ghost Writer")
 
@@ -55,8 +57,9 @@ no_words = st.text_input('Maximum number of words for the chapter you want me to
 
 submit = st.button("Generate")
 
-
-if submit:
+if password != st.secrets['APP_PASSWORD']:
+    st.warning('Check password', icon="⚠️")
+elif submit and password == st.secrets['APP_PASSWORD']: 
     next_chapter_response = getresponse(input_text,plotline,no_words)
     st.header('Next Chapter')
     st.write(next_chapter_response)
