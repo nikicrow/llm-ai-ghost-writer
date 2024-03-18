@@ -48,7 +48,7 @@ st.header("AI Ghost Writer")
 password = st.sidebar.text_input("Password to use the app")
 
 # input from user
-input_text=st.text_area("Enter the current chapter of the book", height = 15)
+input_text=st.text_area("Input the book so far", height = 15)
 plotline=st.text_area("Enter a brief summary of the plotline for the next chapter you want me to write", height=5)
 extra_notes = st.text_area("Extra notes to set the scene and information about the characters that I should use to write the chapter", height=5)
 no_words = st.text_input('Maximum number of words for the chapter you want me to write')
