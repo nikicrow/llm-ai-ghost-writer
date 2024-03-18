@@ -55,10 +55,11 @@ no_words = st.text_input('Maximum number of words for the chapter you want me to
 submit = st.button("Generate")
 
 if submit:
-    next_chapter_response = getresponse(input_text,plotline,extra_notes,no_words)
-    st.header('Next Chapter')
-    st.write(next_chapter_response.choices[0].message.content)
-    # how much is openai costing me?
-    st.write('Prompt tokens = ',next_chapter_response.usage.prompt_tokens,' which should be about ',round(next_chapter_response.usage.prompt_tokens/1000000*50,6),'cents ($0.50 per million tokens)')
-    st.write('Completion tokens = ',next_chapter_response.usage.completion_tokens,' which should be about ',round(next_chapter_response.usage.completion_tokens/1000000*150,6),'cents ($1.50 per million tokens)')
-    st.write('Total approximate cost for this chapter = ',round(next_chapter_response.usage.prompt_tokens/1000000*50+next_chapter_response.usage.completion_tokens/1000000*150,6),' US cents')
+    with st.status('👩🏾‍🍳 Whipping up your next chapter...', expanded=True) as status:
+        next_chapter_response = getresponse(input_text,plotline,extra_notes,no_words)
+        st.header('Next Chapter')
+        st.write(next_chapter_response.choices[0].message.content)
+        # how much is openai costing me?
+        st.write('Prompt tokens = ',next_chapter_response.usage.prompt_tokens,' which should be about ',round(next_chapter_response.usage.prompt_tokens/1000000*50,6),'cents ($0.50 per million tokens)')
+        st.write('Completion tokens = ',next_chapter_response.usage.completion_tokens,' which should be about ',round(next_chapter_response.usage.completion_tokens/1000000*150,6),'cents ($1.50 per million tokens)')
+        st.write('Total approximate cost for this chapter = ',round(next_chapter_response.usage.prompt_tokens/1000000*50+next_chapter_response.usage.completion_tokens/1000000*150,6),' US cents')
